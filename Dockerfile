@@ -9,5 +9,5 @@ RUN mvn -f pom.xml clean package -DskipTests
 FROM openjdk:17.0.1-jdk-slim
 WORKDIR /app
 COPY --from=build /app/target/*.jar ./app.jar
-expose 80
+expose 8080
 entrypoint ["java", "-jar", "app.jar"]
